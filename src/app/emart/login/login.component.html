@@ -1,0 +1,41 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-5">
+            <div class="small text-center text-danger">{{errorMessage}}</div>
+            <div class="card card-align">
+                <div class="card-header bg-info">
+                    <h4>LOGIN</h4>
+                </div>
+                <div class="card-body">
+                    Sign in as :
+                    <div class="form-check-inline">
+                        <label for="buyer" class="form-check-label">
+                            <input type="radio" class="form-check-input" id="buyer" [(ngModel)]='sign' value='buyer'
+                                name="radioSign" />
+                            Buyer
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label for="buyer" class="form-check-label">
+                            <input type="radio" class="form-check-input" id="seller" [(ngModel)]='sign' value='seller'
+                                name="radioSign" />
+                            Seller
+                        </label>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="username">User Name :</label>
+                        <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password :</label>
+                        <input type="password" class="form-control" id="password" [(ngModel)]="password"
+                            name="password" />
+                    </div>
+                    <button type="submit" (click)="validate()" class="btn btn-info">LOGIN</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

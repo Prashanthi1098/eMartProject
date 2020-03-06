@@ -1,0 +1,104 @@
+<div class="container">
+    <div *ngIf="showBill">
+        <div class="row">
+            <div class="table-responsive m-5">
+                <h3>Purchase History</h3>
+                <table class="table">
+                    <tbody>
+                        <tr *ngFor="let bill of allBills">
+                            <td>
+                                <button type="button" class="btn btn-basic  w-100" data-toggle="collapse"
+                                    attr.data-target="#bill{{ bill.id }}">
+                                    <span class="float-left">Bill Id: {{ bill.id }}</span>
+                                    <span class="float-middle">Bill Dated: {{ bill.date | date:"dd/MM/yyyy" }}</span>
+                                    <span class="float-right">Bill Amount: Rs. {{ bill.amount }}</span>
+                                </button>
+
+                                <div class="collapse" id="bill{{ bill.id }}">
+                                    <div class="row mt-5">
+                                        <div class="col">
+                                            <div class="row mt-2">
+                                                <div class="col">
+                                                    <h1>Bill</h1>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <h4>eMart Services</h4>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="float-left">
+                                                        Contact Us: emart@abc.com
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="float-right">
+                                                        Buyer Name: {{ currentBuyer.username }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="float-left">
+                                                        Date: {{ bill.date | date:"dd/MM/yyyy"}}
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="float-right">
+                                                        Buyer Id: {{ currentBuyer.id }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="table-responsive m-2"></div>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Particulars</th>
+                                                    <th>Quantity</th>
+                                                    <th>Rate</th>
+                                                    <th>Amount</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngFor="let item of bill.allBillDetails">
+                                                    <td>{{ item.itemId.id }}</td>
+                                                    <td>{{ item.itemId.name }}</td>
+                                                    <td>1</td>
+                                                    <td>Rs. {{ item.itemId.price }}</td>
+                                                    <td>Rs. {{ item.itemId.price }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>
+                                                        <h5>Total:</h5>
+                                                    </td>
+                                                    <td>Rs. {{ bill.amount }}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!showBill">
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <span class="display-4 text-dark">Purchase History is Empty</span>
+            </div>
+        </div>
+    </div>
+</div>

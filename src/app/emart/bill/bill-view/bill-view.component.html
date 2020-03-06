@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col">
+            <div class="row mt-2">
+                <div class="col">
+                    <h1>Bill</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h4>eMart Services</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="float-left">
+                        Contact Us: emart@abc.com
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="float-right">
+                        Buyer Name: {{currentBuyer.username}}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="float-left">
+                        Date: {{ todayDate | date:'short' }}
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="float-right">
+                        Buyer Id: {{ currentBuyer.id }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="table-responsive m-2"></div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Particulars</th>
+                    <th>Quantity</th>
+                    <th>Rate</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of cartItems">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>1</td>
+                    <td>Rs. {{ item.price }}</td>
+                    <td>Rs. {{ item.price }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <h5>Total:</h5>
+                    </td>
+                    <td>Rs. {{ amount }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row m-2">
+        <div class="table-responsive m-5">
+            <button type="button" class="btn btn-info ml-5 w-75" (click)="addBill()">
+                Pay Amount
+            </button>
+        </div>
+    </div>
+</div>
